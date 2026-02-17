@@ -1,0 +1,6 @@
+com\atm\servlet\DepositServlet.class
+com\atm\util\DBUtil.class
+com\atm\servlet\WithdrawServlet.class
+com\atm\servlet\TransactionServlet.class
+com\atm\servlet\BalanceServlet.class
+com\atm\servlet\LoginServlet.class
