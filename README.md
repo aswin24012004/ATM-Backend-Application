@@ -25,77 +25,57 @@ ATM-Backend/
 │       ├── java/com/atm/servlet/   # Servlets
 │       ├── java/com/atm/util/      # DB Utility
 │       ├── resources/              # Config files
-│       └── webapp/WEB-INF/web.xml  # Deployment descriptor
+│       └── webapp/WEB-INF/web.xml  # Deployment descripton
 
-Code
-
-
-Copy
 
 ## ⚙️ Setup Instructions
 
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/your-username/ATM-Backend.git
-   cd ATM-Backend
-Configure Database
-
-Create a MySQL database atmdb.
-
-Add a users table:
+### 1. Clone the repo
+```bash
+git clone https://github.com/your-username/ATM-Backend.git
+cd ATM-Backend
+```
+### 2. Configure Database
+Create a MySQL database atmdb and add a users table:
 
 sql
-
-
-Copy
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(50) UNIQUE NOT NULL,
   pin VARCHAR(10) NOT NULL,
   balance DOUBLE DEFAULT 0
 );
+
 Update DBUtil.java with your MySQL username/password.
 
-Build the project
-
+3. Build the project
 bash
-
-
-Copy
 mvn clean package
-Deploy to Tomcat
+4. Deploy to Tomcat
+Copy the generated WAR file:
 
-Copy target/ATM-Backend.war into tomcat/webapps/.
-
+```Code
+target/ATM-Backend.war → <TOMCAT_HOME>/webapps/
 Start Tomcat:
-
-bash
-
-
-Copy
+```
+```bash
 ./bin/startup.sh   # Linux/Mac
 .\bin\startup.bat  # Windows
-Test APIs
 
+```
+5. Test APIs
 Login:
 
-bash
-
-
-Copy
+```bash
 curl -X POST -d "username=testuser&pin=1234" http://localhost:8080/ATM-Backend/api/login
 Balance:
-
-bash
-
-
-Copy
+```
+```bash
 curl "http://localhost:8080/ATM-Backend/api/balance?username=testuser"
+```
+
 🧪 Example Responses
 json
-
-
-Copy
 # Login success
 {"status":"success","message":"Login successful"}
 
@@ -107,17 +87,8 @@ Copy
 📜 License
 This project is for educational purposes. Modify and extend as needed.
 
-Code
-
-
-Copy
-
 ---
 
-👉 I kept the README practical: setup, build, deploy, and test instructions. Would you like me to also create a **Postman collection JSON** with all five endpoints preconfigured, so you can import it and test your API instantly?
+This version removes the duplicated “Code / Copy” markers and ensures all commands are properly fenced in code blocks.  
 
-
-
-
-
-
+👉 Would you like me to also generate a **Postman collection JSON file** with all five endpoints (`login`, `balance`, `withdraw`, `deposit`, `transactions`) preconfigured, so you can import it directly into Postman and test your API without typing each request manually?
